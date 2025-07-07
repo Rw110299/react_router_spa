@@ -1,14 +1,15 @@
+// App.jsx
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
-import Footer from './components/Footer.jsx';  // Importa Footer
+import Footer from './components/Footer.jsx';
 import './styles/App.css';
 
-export default function App() {
+function AppRoutes() {
   return (
-    <BrowserRouter>
+    <>
       <header>
         <nav className="nav-bar">
           <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink>
@@ -25,7 +26,17 @@ export default function App() {
         </Routes>
       </main>
 
-      <Footer /> {/* Aqui usamos o Footer */}
+      <Footer />
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
     </BrowserRouter>
   );
 }
+
+export { AppRoutes };
